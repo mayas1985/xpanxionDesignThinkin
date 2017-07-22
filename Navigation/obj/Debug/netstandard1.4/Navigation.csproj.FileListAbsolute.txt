@@ -1,0 +1,6 @@
+C:\Users\xpanxion\train\xpanxionDesignThinkin\Navigation\bin\Debug\netstandard1.4\Navigation.deps.json
+C:\Users\xpanxion\train\xpanxionDesignThinkin\Navigation\bin\Debug\netstandard1.4\Navigation.dll
+C:\Users\xpanxion\train\xpanxionDesignThinkin\Navigation\bin\Debug\netstandard1.4\Navigation.pdb
+C:\Users\xpanxion\train\xpanxionDesignThinkin\Navigation\obj\Debug\netstandard1.4\Navigation.AssemblyInfo.cs
+C:\Users\xpanxion\train\xpanxionDesignThinkin\Navigation\obj\Debug\netstandard1.4\Navigation.dll
+C:\Users\xpanxion\train\xpanxionDesignThinkin\Navigation\obj\Debug\netstandard1.4\Navigation.pdb
