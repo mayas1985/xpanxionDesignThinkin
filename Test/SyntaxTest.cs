@@ -8,9 +8,9 @@ namespace Test
     {
         [TestMethod]
         public void Should_Find_Blue(){
-            var testString =  new SyntaxHighlighter("[blue]").Process("as if", "as if twice");
+            var testString =  new SyntaxHighlighter("as:blue:capital if:blue:lower").Process("as if twice");
             Console.WriteLine(testString);
-            Assert.AreEqual(testString, "[blue]as[blue] [blue]if[blue] twice");
+            Assert.AreEqual(testString, "[blue]AS[blue] [blue]if[blue] twice");
         }
 
     }

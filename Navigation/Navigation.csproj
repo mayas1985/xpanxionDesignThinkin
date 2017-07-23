@@ -8,5 +8,6 @@
     <Content Include="t" />
     <Content Include="NavigationService.cs" />
     <Content Include="SyntaxHighlighter.cs" />
+    <Content Include="Meta.cs" />
   </ItemGroup>
 </Project>

@@ -1,23 +1,49 @@
 using System;
 using System.Linq;
-
+using System.Collections.Generic;
 namespace Navigation
 {
     public class SyntaxHighlighter
     {
-        private string  HighlighterText{get;set;}
+        
+        private  Dictionary<string,Meta> KeywordAndHighlighter {get;set;}
 
-        public SyntaxHighlighter(string highlighterText )
+        public SyntaxHighlighter(string toSearch)
         {
-            this.HighlighterText = highlighterText;
+            this.KeywordAndHighlighter = new Dictionary<string, Meta>();
+            var keywordToSearch = toSearch.Split(' ');
+            foreach (var keywords in keywordToSearch)
+            {
+                var meta =new Meta{ Highlight = "[blue]", Case = StringCase.Default};
+                string keySearch = keywords;
+
+                if( keywords.Contains(":")){
+                    var keyword = keywords.Split(':');
+                    meta.Highlight = "[" + keyword[1] + "]";
+                    meta.Case = keyword[2] == "capital"? StringCase.Capital: StringCase.Lower ;
+                    keySearch = keyword[0];
+                }
+                this.KeywordAndHighlighter.Add(keySearch, meta);
+            }
         }
-        public string Process(string toSearch, string inputString){
+
+
+        public string Process(string inputString){
             if( inputString == null) return null;
             
-            var keywordToSearch = toSearch.Split(' ');
-            foreach (var keyword in keywordToSearch)
+            foreach (var dict in this.KeywordAndHighlighter)
             {
-               inputString =  inputString.Replace(keyword, $"{HighlighterText}{keyword}{HighlighterText}");
+                 Meta meta = dict.Value;
+                 var toReplace = dict.Key;
+                    
+                  if(meta.Case == StringCase.Capital )
+                      toReplace=  dict.Key.ToUpper();
+            
+                    if(meta.Case == StringCase.Lower ) 
+                    toReplace= dict.Key.ToLower();
+        
+                
+               inputString =  inputString.Replace(dict.Key, $"{meta.Highlight}{toReplace}{meta.Highlight}");
             }
             return inputString;
         }
