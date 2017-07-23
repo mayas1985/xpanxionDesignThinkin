@@ -19,7 +19,11 @@ namespace Navigation
 
                 if( keywords.Contains(":")){
                     var keyword = keywords.Split(':');
+                    
                     meta.Highlight = "[" + keyword[1] + "]";
+                    if(keyword[3]=="bold"){
+                    meta.FontStyle = "[" + keyword[3] + "]";
+                    }
                     meta.Case = keyword[2] == "capital"? StringCase.Capital: StringCase.Lower ;
                     keySearch = keyword[0];
                 }
@@ -43,7 +47,7 @@ namespace Navigation
                     toReplace= dict.Key.ToLower();
         
                 
-               inputString =  inputString.Replace(dict.Key, $"{meta.Highlight}{toReplace}{meta.Highlight}");
+               inputString =  inputString.Replace(dict.Key, $"{meta.Highlight}{meta.FontStyle}{toReplace}{meta.FontStyle}{meta.Highlight}");
             }
             return inputString;
         }

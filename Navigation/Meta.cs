@@ -7,6 +7,7 @@ namespace Navigation
     public class Meta{
         public string Highlight { get; set; }
         public StringCase Case {get;set;}
+        public string FontStyle {get;set;}
         }
 
         public enum StringCase{
